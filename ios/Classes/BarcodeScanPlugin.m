@@ -1,5 +1,6 @@
 #import "BarcodeScanPlugin.h"
 #import "BarcodeScannerViewController.h"
+#import "ScanOptions.h"
 
 @implementation BarcodeScanPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
@@ -12,6 +13,7 @@
 
 - (void)handleMethodCall:(FlutterMethodCall *)call result:(FlutterResult)result {
     if ([@"scan" isEqualToString:call.method]) {
+        self.scanOptions = call.arguments
         self.result = result;
         [self showBarcodeView];
     } else {
