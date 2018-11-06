@@ -9,6 +9,8 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.PluginRegistry
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
+import 'package:bacode_scan/scan_options.dart'
+
 class BarcodeScanPlugin(val activity: Activity): MethodCallHandler,
     PluginRegistry.ActivityResultListener {
   var result : Result? = null
@@ -23,6 +25,8 @@ class BarcodeScanPlugin(val activity: Activity): MethodCallHandler,
   }
 
   override fun onMethodCall(call: MethodCall, result: Result): Unit {
+    ScanOptions options = call.arguments()
+      
     if (call.method.equals("scan")) {
       this.result = result
       showBarcodeView()
