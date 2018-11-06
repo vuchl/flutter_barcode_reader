@@ -1,5 +1,6 @@
 #import <Flutter/Flutter.h>
 #import "BarcodeScannerViewControllerDelegate.h"
+#import "ScanOptions.h"
 
 #define UIColorFromRGB(rgbValue) \
 [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -10,5 +11,6 @@
 @interface BarcodeScanPlugin : NSObject<FlutterPlugin, BarcodeScannerViewControllerDelegate>
 
 @property(nonatomic, retain) FlutterResult result;
-@property (nonatomic, assign) UIViewController *hostViewController;
+@property(nonatomic, assign) UIViewController *hostViewController;
+@property(nonatomic, assign) ScanOptions scanOptions
 @end
